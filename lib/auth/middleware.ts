@@ -1,5 +1,5 @@
-import { supabaseAdmin } from './supabase/server';
 import { cookies } from 'next/headers';
+import { supabaseAdmin } from '../supabase/server';
 
 function parseCookieHeader(header: string | null, name: string) {
   if (!header) return null;
