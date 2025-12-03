@@ -1,6 +1,25 @@
 # Quick Start Guide
 
+**📌 First Time?** Start here: [SUPABASE_QUICK_PUSH.md](./SUPABASE_QUICK_PUSH.md) to push database to cloud!
+
 ## 5-Minute Setup
+
+### Step 0: Push Database to Cloud (Required First) ⭐
+
+Before doing anything, you need to set up your Supabase project in the cloud:
+
+1. **See:** [SUPABASE_QUICK_PUSH.md](./SUPABASE_QUICK_PUSH.md)
+2. **Run these commands:**
+
+   ```bash
+   npm install -g supabase
+   supabase login
+   supabase link --project-ref YOUR_PROJECT_REF
+   supabase db pull
+   supabase db push
+   ```
+
+3. **Get your credentials** from Supabase Dashboard (Settings → API)
 
 ### Step 1: Get Supabase Credentials (2 min)
 
