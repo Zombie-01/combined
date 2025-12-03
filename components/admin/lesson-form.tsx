@@ -98,7 +98,7 @@ export default function LessonForm() {
                 <ImageUpload
                   value={imageUrl}
                   onChange={setImageUrl}
-                  bucket="portfolio-lessons"
+                  bucket="images"
                   onError={setError}
                 />
               </div>

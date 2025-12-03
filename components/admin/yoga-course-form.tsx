@@ -154,7 +154,7 @@ export default function YogaCourseForm() {
                 <ImageUpload
                   value={imageUrl}
                   onChange={setImageUrl}
-                  bucket="yoga-courses"
+                  bucket="images"
                   onError={setError}
                 />
               </div>

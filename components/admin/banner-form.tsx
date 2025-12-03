@@ -68,7 +68,7 @@ export default function BannerForm() {
                 <ImageUpload
                   value={imageUrl}
                   onChange={setImageUrl}
-                  bucket="travel-banners"
+                  bucket="images"
                   onError={setError}
                 />
               </div>

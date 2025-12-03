@@ -233,7 +233,7 @@ export function CreateProductModal({
               value={formData.image}
               onChange={(url) => setFormData({ ...formData, image: url })}
               onError={setUploadError}
-              bucket="products"
+              bucket="images"
               placeholder="Бүтээгдэхүүний зураг оруулах"
             />
             {uploadError && (

@@ -193,7 +193,7 @@ export default function TravelItemForm() {
                 <ImageUpload
                   value={imageUrl}
                   onChange={setImageUrl}
-                  bucket="travel-items"
+                  bucket="images"
                   onError={setError}
                 />
               </div>

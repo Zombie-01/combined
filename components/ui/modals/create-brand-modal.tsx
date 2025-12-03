@@ -101,7 +101,7 @@ export function CreateBrandModal({
               value={formData.logo}
               onChange={(url) => setFormData({ ...formData, logo: url })}
               onError={setUploadError}
-              bucket="brands"
+              bucket="images"
               placeholder="Брэндийн лого оруулах"
             />
             {uploadError && (
