@@ -9,6 +9,7 @@ interface EditUserModalProps {
   onSubmit: (data: any) => void;
   userId: string | null;
 }
+const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 export function EditUserModal({
   isOpen,
@@ -35,7 +36,7 @@ export function EditUserModal({
   const fetchUser = async () => {
     if (!userId) return;
     try {
-      const res = await fetch(`/api/admin/users/${userId}`);
+      const res = await fetch(baseUrl + `/api/admin/users/${userId}`);
       if (!res.ok) throw new Error("Failed to fetch user");
       const data = await res.json();
       setFormData({
@@ -57,7 +58,7 @@ export function EditUserModal({
     setIsLoading(true);
     setError("");
     try {
-      const res = await fetch(`/api/admin/users/${userId}`, {
+      const res = await fetch(baseUrl + `/api/admin/users/${userId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -1,1 +1,8 @@
-{}
+{
+  "/not-found": "app/not-found.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/api/yoga/courses/route": "app/api/yoga/courses/route.js",
+  "/api/auth/session/route": "app/api/auth/session/route.js",
+  "/admin/yoga/courses/page": "app/admin/yoga/courses/page.js"
+}

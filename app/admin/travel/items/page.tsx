@@ -6,11 +6,12 @@ import TravelItemsTable from "./table";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Page() {
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
   let items = [];
   let loading = true;
 
   try {
-    const res = await fetch(`/api/travel/items`, {
+    const res = await fetch(`${baseUrl}/api/travel/items`, {
       cache: "no-store",
     });
     if (res.ok) {

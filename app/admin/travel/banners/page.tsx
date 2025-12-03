@@ -2,15 +2,16 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import BannersTable from "./table";
+import BannersTable from "./tablE";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Page() {
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
   let banners = [];
   let loading = true;
 
   try {
-    const res = await fetch(`/api/travel/banners`, {
+    const res = await fetch(`${baseUrl}/api/travel/banners`, {
       cache: "no-store",
     });
     if (res.ok) {
