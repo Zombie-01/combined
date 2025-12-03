@@ -9,6 +9,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import DeleteButton from "@/components/ui/delete-button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { listTravelItems } from "@/lib/supabase/actions";
 
@@ -48,9 +49,12 @@ export default async function Page() {
                   <TableRow key={it.id}>
                     <TableCell>{it.title}</TableCell>
                     <TableCell>
-                      <Link href={`/admin/travel/items/${it.id}`}>
-                        <Button variant="ghost">Edit</Button>
-                      </Link>
+                      <div className="flex items-center">
+                        <Link href={`/admin/travel/items/${it.id}`}>
+                          <Button variant="ghost">Edit</Button>
+                        </Link>
+                        <DeleteButton id={it.id} apiPath="/api/travel/items" />
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))

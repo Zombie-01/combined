@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 export default function YogaCourseForm() {
   const router = useRouter();
@@ -38,16 +39,19 @@ export default function YogaCourseForm() {
     try {
       if (!title.trim()) {
         setError("Title is required");
+        toast.error("Title is required");
         setLoading(false);
         return;
       }
       if (!type) {
         setError("Yoga type is required");
+        toast.error("Yoga type is required");
         setLoading(false);
         return;
       }
       if (!imageUrl.trim()) {
         setError("Course image is required");
+        toast.error("Course image is required");
         setLoading(false);
         return;
       }
@@ -66,15 +70,25 @@ export default function YogaCourseForm() {
 
       if (!response.ok) {
         const data = await response.json();
-        setError(data.error || "Failed to create yoga course");
+        const errMsg = data.error || "Failed to create yoga course";
+        setError(errMsg);
+        toast.error(errMsg);
         setLoading(false);
         return;
       }
 
+      try {
+        const d = await response.json().catch(() => null);
+        if (d?.warning) toast("Warning: " + d.warning);
+      } catch {}
+
+      toast.success("Course created");
       router.push("/admin/yoga/courses");
     } catch (err) {
       console.error(err);
-      setError("An error occurred while creating the yoga course");
+      const msg = "An error occurred while creating the yoga course";
+      setError(msg);
+      toast.error(msg);
       setLoading(false);
     }
   };

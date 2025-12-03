@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
+import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function LessonForm() {
@@ -25,6 +26,7 @@ export default function LessonForm() {
     try {
       if (!title.trim()) {
         setError("Title is required");
+        toast.error("Title is required");
         setLoading(false);
         return;
       }
@@ -42,15 +44,25 @@ export default function LessonForm() {
 
       if (!response.ok) {
         const data = await response.json();
-        setError(data.error || "Failed to create lesson");
+        const errMsg = data.error || "Failed to create lesson";
+        setError(errMsg);
+        toast.error(errMsg);
         setLoading(false);
         return;
       }
 
+      try {
+        const d = await response.json().catch(() => null);
+        if (d?.warning) toast("Warning: " + d.warning);
+      } catch {}
+
+      toast.success("Lesson created");
       router.push("/admin/portfolio/lessons");
     } catch (err) {
       console.error(err);
-      setError("An error occurred while creating the lesson");
+      const msg = "An error occurred while creating the lesson";
+      setError(msg);
+      toast.error(msg);
       setLoading(false);
     }
   };

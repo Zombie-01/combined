@@ -4,6 +4,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 // Uses server API at /api/admin/brands
 import { ImageUpload } from "@/components/ui/image-upload";
+import { toast } from "sonner";
 
 interface CreateBrandModalProps {
   isOpen: boolean;
@@ -40,11 +41,14 @@ export function CreateBrandModal({
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        throw new Error(err?.error || "Failed to create brand");
+        const msg = err?.error || "Failed to create brand";
+        toast.error(msg);
+        throw new Error(msg);
       }
 
       const payload = await res.json();
       setFormData({ name: "", logo: "", description: "", is_active: true });
+      toast.success("Brand created");
       onClose();
       onBrandCreated(payload.brand);
     } catch (err: any) {

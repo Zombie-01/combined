@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 // Uses server API at /api/admin
 import { ImageUpload } from "@/components/ui/image-upload";
+import { toast } from "sonner";
 
 interface CreateProductModalProps {
   isOpen: boolean;
@@ -71,7 +72,9 @@ export function CreateProductModal({
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        throw new Error(err?.error || "Failed to create product");
+        const msg = err?.error || "Failed to create product";
+        toast.error(msg);
+        throw new Error(msg);
       }
 
       const payload = await res.json();
@@ -89,6 +92,7 @@ export function CreateProductModal({
         stock: 0,
         is_active: true,
       });
+      toast.success("Product created");
       onClose();
     } catch (err: any) {
       setError(err.message || "Алдаа гарлаа");

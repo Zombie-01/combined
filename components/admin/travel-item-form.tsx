@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 interface Category {
   id: string;
@@ -49,16 +50,19 @@ export default function TravelItemForm() {
     try {
       if (!title.trim()) {
         setError("Title is required");
+        toast.error("Title is required");
         setLoading(false);
         return;
       }
       if (!categoryId) {
         setError("Category is required");
+        toast.error("Category is required");
         setLoading(false);
         return;
       }
       if (!imageUrl.trim()) {
         setError("Item image is required");
+        toast.error("Item image is required");
         setLoading(false);
         return;
       }
@@ -79,15 +83,25 @@ export default function TravelItemForm() {
 
       if (!response.ok) {
         const data = await response.json();
-        setError(data.error || "Failed to create travel item");
+        const errMsg = data.error || "Failed to create travel item";
+        setError(errMsg);
+        toast.error(errMsg);
         setLoading(false);
         return;
       }
 
+      try {
+        const d = await response.json().catch(() => null);
+        if (d?.warning) toast("Warning: " + d.warning);
+      } catch {}
+
+      toast.success("Travel item created");
       router.push("/admin/travel/items");
     } catch (err) {
       console.error(err);
-      setError("An error occurred while creating the travel item");
+      const msg = "An error occurred while creating the travel item";
+      setError(msg);
+      toast.error(msg);
       setLoading(false);
     }
   };
