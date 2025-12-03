@@ -17,16 +17,18 @@ export async function getStats() {
 
   const result: Record<string, number> = {};
 
-  for (const [key, table] of Object.entries(tables)) {
-    try {
-      const { count } = await supabaseAdmin
-        .from(table)
-        .select({ count: "exact", head: true });
-      result[key] = typeof count === "number" ? count : 0;
-    } catch (e) {
-      result[key] = 0;
-    }
+for (const [key, table] of Object.entries(tables)) {
+  try {
+    const { count } = await supabaseAdmin
+      .from(table)
+      .select("*", { count: "exact", head: true });
+
+    result[key] = typeof count === "number" ? count : 0;
+  } catch (e) {
+    result[key] = 0;
   }
+}
+
 
   return {
     lessons: result.lessons ?? 0,
