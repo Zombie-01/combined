@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase/client";
 
 export default function Header() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -10,43 +9,42 @@ export default function Header() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const checkAuth = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      if (session) {
-        setIsAuthenticated(true);
-        setUserEmail(session.user.email || null);
-      } else {
+    const fetchSession = async () => {
+      try {
+        const res = await fetch("/api/auth/session");
+        if (res.ok) {
+          const json = await res.json();
+          const session = json.session ?? null;
+          const profile = json.profile ?? null;
+          if (session) {
+            setIsAuthenticated(true);
+            setUserEmail(session.user?.email ?? profile?.email ?? null);
+          } else {
+            setIsAuthenticated(false);
+            setUserEmail(null);
+          }
+        } else {
+          setIsAuthenticated(false);
+          setUserEmail(null);
+        }
+      } catch (err) {
+        console.error("Failed to fetch session", err);
         setIsAuthenticated(false);
         setUserEmail(null);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     };
 
-    checkAuth();
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        setIsAuthenticated(true);
-        setUserEmail(session.user.email || null);
-      } else {
-        setIsAuthenticated(false);
-        setUserEmail(null);
-      }
-    });
-
-    return () => {
-      subscription?.unsubscribe();
-    };
+    fetchSession();
   }, []);
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
     setIsAuthenticated(false);
     setUserEmail(null);
   };

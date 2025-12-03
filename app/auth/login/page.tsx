@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase/client";
+// Use server-side auth endpoints instead of client-side Supabase
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -18,13 +18,15 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
 
-      if (signInError) {
-        setError(signInError.message);
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Login failed");
       } else {
         router.push("/admin/dashboard");
       }

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase/client";
+import { supabaseAdmin } from "@/lib/supabase/server";
 
 function parseCookie(header: string | null, name: string) {
   if (!header) return null;
@@ -17,11 +17,11 @@ export async function GET(req: Request) {
     const token = parseCookie(cookieHeader, "sb-access-token");
 
     if (token) {
-      const { data, error } = await supabase.auth.getUser(token as any);
+      const { data, error } = await supabaseAdmin.auth.getUser(token as any);
       if (error) return NextResponse.json({ session: null, profile: null });
       const user = data?.user ?? null;
       if (!user) return NextResponse.json({ session: null, profile: null });
-      const { data: profile } = await supabase
+      const { data: profile } = await supabaseAdmin
         .from("users")
         .select("*")
         .eq("id", user.id)
@@ -32,11 +32,11 @@ export async function GET(req: Request) {
     const authHeader = req.headers.get("authorization") || "";
     if (authHeader.startsWith("Bearer ")) {
       const token2 = authHeader.replace("Bearer ", "");
-      const { data, error } = await supabase.auth.getUser(token2 as any);
+      const { data, error } = await supabaseAdmin.auth.getUser(token2 as any);
       if (error) return NextResponse.json({ session: null, profile: null });
       const user = data?.user ?? null;
       if (!user) return NextResponse.json({ session: null, profile: null });
-      const { data: profile } = await supabase
+      const { data: profile } = await supabaseAdmin
         .from("users")
         .select("*")
         .eq("id", user.id)

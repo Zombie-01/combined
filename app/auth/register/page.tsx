@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase/client";
+// Use server-side auth endpoints instead of client-side Supabase
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -26,26 +26,18 @@ export default function RegisterPage() {
     }
 
     try {
-      const { error: signUpError, data } = await supabase.auth.signUp({
-        email,
-        password,
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
       });
 
-      if (signUpError) {
-        setError(signUpError.message);
-      } else if (data.user) {
-        const { error: insertError } = await supabase.from("users").insert({
-          id: data.user.id,
-          email,
-          name,
-          role: "user",
-        });
-
-        if (insertError) {
-          setError(insertError.message);
-        } else {
-          router.push("/dashboard");
-        }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Registration failed");
+      } else {
+        // Registration succeeded
+        router.push("/auth/login");
       }
     } catch (err) {
       setError("An unexpected error occurred");
