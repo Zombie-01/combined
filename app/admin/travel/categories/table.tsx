@@ -1,0 +1,54 @@
+"use client";
+
+import Link from "next/link";
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import DeleteButton from "@/components/ui/delete-button";
+
+interface Category {
+  id: string;
+  name: string;
+}
+
+export default function CategoriesTable({ cats }: { cats: Category[] }) {
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Name</TableHead>
+          <TableHead>Actions</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {cats.length === 0 ? (
+          <TableRow>
+            <TableCell colSpan={2} className="text-center py-6">
+              No categories
+            </TableCell>
+          </TableRow>
+        ) : (
+          cats.map((c) => (
+            <TableRow key={c.id}>
+              <TableCell>{c.name}</TableCell>
+              <TableCell>
+                <div className="flex items-center">
+                  <Link href={`/admin/travel/categories/${c.id}`}>
+                    <Button variant="ghost">Edit</Button>
+                  </Link>
+                  <DeleteButton id={c.id} apiPath="/api/travel/categories" />
+                </div>
+              </TableCell>
+            </TableRow>
+          ))
+        )}
+      </TableBody>
+    </Table>
+  );
+}

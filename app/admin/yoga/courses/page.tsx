@@ -1,20 +1,28 @@
 import React from "react";
 import Link from "next/link";
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import DeleteButton from "@/components/ui/delete-button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { listYogaCourses } from "@/lib/supabase/actions";
+import YogaCoursesTable from "./table";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Page() {
-  const courses = await listYogaCourses();
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  let courses = [];
+  let loading = true;
+
+  try {
+    const res = await fetch(`${baseUrl}/api/yoga/courses`, {
+      cache: "no-store",
+    });
+    if (res.ok) {
+      const { data } = await res.json();
+      courses = data || [];
+    }
+  } catch (error) {
+    console.error("Failed to fetch courses:", error);
+  } finally {
+    loading = false;
+  }
 
   return (
     <div>
@@ -30,37 +38,15 @@ export default async function Page() {
           <CardTitle>Courses</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {courses.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={2} className="text-center py-6">
-                    No courses
-                  </TableCell>
-                </TableRow>
-              ) : (
-                courses.map((c) => (
-                  <TableRow key={c.id}>
-                    <TableCell>{c.title}</TableCell>
-                    <TableCell>
-                      <div className="flex items-center">
-                        <Link href={`/admin/yoga/courses/${c.id}`}>
-                          <Button variant="ghost">Edit</Button>
-                        </Link>
-                        <DeleteButton id={c.id} apiPath="/api/yoga/courses" />
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+          {loading ? (
+            <div className="space-y-2">
+              <Skeleton className="h-12 w-full" />
+              <Skeleton className="h-12 w-full" />
+              <Skeleton className="h-12 w-full" />
+            </div>
+          ) : (
+            <YogaCoursesTable courses={courses} />
+          )}
         </CardContent>
       </Card>
     </div>

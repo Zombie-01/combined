@@ -1,20 +1,28 @@
 import React from "react";
 import Link from "next/link";
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import DeleteButton from "@/components/ui/delete-button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { listBanners } from "@/lib/supabase/actions";
+import BannersTable from "./table";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Page() {
-  const banners = await listBanners();
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  let banners = [];
+  let loading = true;
+
+  try {
+    const res = await fetch(`${baseUrl}/api/travel/banners`, {
+      cache: "no-store",
+    });
+    if (res.ok) {
+      const { data } = await res.json();
+      banners = data || [];
+    }
+  } catch (error) {
+    console.error("Failed to fetch banners:", error);
+  } finally {
+    loading = false;
+  }
 
   return (
     <div>
@@ -30,37 +38,15 @@ export default async function Page() {
           <CardTitle>All Banners</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {banners.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={2} className="text-center py-6">
-                    No banners
-                  </TableCell>
-                </TableRow>
-              ) : (
-                banners.map((b) => (
-                  <TableRow key={b.id}>
-                    <TableCell>{b.text}</TableCell>
-                    <TableCell>
-                      <div className="flex items-center">
-                        <Link href={`/admin/travel/banners/${b.id}`}>
-                          <Button variant="ghost">Edit</Button>
-                        </Link>
-                        <DeleteButton id={b.id} apiPath="/api/travel/banners" />
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+          {loading ? (
+            <div className="space-y-2">
+              <Skeleton className="h-12 w-full" />
+              <Skeleton className="h-12 w-full" />
+              <Skeleton className="h-12 w-full" />
+            </div>
+          ) : (
+            <BannersTable banners={banners} />
+          )}
         </CardContent>
       </Card>
     </div>

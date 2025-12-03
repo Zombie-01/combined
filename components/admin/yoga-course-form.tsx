@@ -19,17 +19,7 @@ export default function YogaCourseForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const yogaTypes = [
-    "Hatha",
-    "Vinyasa",
-    "Power Yoga",
-    "Ashtanga",
-    "Yin Yoga",
-    "Restorative",
-    "Hot Yoga",
-    "Prenatal",
-    "Other",
-  ];
+  const yogaTypes = ["online", "offline", "travel", "free"];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,7 +73,7 @@ export default function YogaCourseForm() {
       } catch {}
 
       toast.success("Course created");
-      router.push("/admin/yoga/courses");
+      // router.push("/admin/yoga/courses");
     } catch (err) {
       console.error(err);
       const msg = "An error occurred while creating the yoga course";
