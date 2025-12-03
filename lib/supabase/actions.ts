@@ -181,7 +181,7 @@ export async function deleteTravelItem(id: string) {
 export async function listTravelBookings() {
   const { data } = await supabaseAdmin
     .from("travel_bookings")
-    .select("id,created_at,user_id,travel_id,travel_items(title)")
+    .select("*")
     .order("created_at", { ascending: false });
   return data ?? [];
 }

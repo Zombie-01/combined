@@ -38,8 +38,8 @@ export default async function Page() {
               ) : (
                 regs.map((r) => (
                   <TableRow key={r.id}>
-                    <TableCell>{r.user}</TableCell>
-                    <TableCell>{r.lessonTitle}</TableCell>
+                    <TableCell>{r.user_id}</TableCell>
+                    <TableCell>{r.lesson_id}</TableCell>
                   </TableRow>
                 ))
               )}

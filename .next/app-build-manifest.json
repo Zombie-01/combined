@@ -15,22 +15,6 @@
       "static/css/6b1d3dad2de70c62.css",
       "static/chunks/app/layout-e0ccee9b3569f76a.js"
     ],
-    "/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/724-3a7039202ad449fb.js",
-      "static/chunks/14-fa89fc85c2a673bd.js",
-      "static/chunks/app/page-3247599ac865f243.js"
-    ],
-    "/auth/layout": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/auth/layout-1f397af2d6b46b8b.js"
-    ],
     "/auth/login/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
@@ -39,6 +23,13 @@
       "static/chunks/724-3a7039202ad449fb.js",
       "static/chunks/296-f605ea1d857f9529.js",
       "static/chunks/app/auth/login/page-5c51157f061b3b41.js"
+    ],
+    "/auth/layout": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/auth/layout-2bd361c8780a9e2d.js"
     ],
     "/auth/register/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
@@ -58,60 +49,6 @@
       "static/chunks/14-fa89fc85c2a673bd.js",
       "static/chunks/app/admin/layout-f14f7f8d24c42935.js"
     ],
-    "/admin/dashboard/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/dashboard/page-a4bb2be7c4b89b5c.js"
-    ],
-    "/admin/travel/categories/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/724-3a7039202ad449fb.js",
-      "static/chunks/app/admin/travel/categories/page-19f232f003b12d95.js"
-    ],
-    "/admin/travel/banners/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/724-3a7039202ad449fb.js",
-      "static/chunks/app/admin/travel/banners/page-b4b4279569d4f052.js"
-    ],
-    "/admin/travel/items/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/724-3a7039202ad449fb.js",
-      "static/chunks/app/admin/travel/items/page-ec0b1933a0992228.js"
-    ],
-    "/admin/portfolio/registrations/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/portfolio/registrations/page-4b378e5452ba6036.js"
-    ],
-    "/admin/portfolio/lessons/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/724-3a7039202ad449fb.js",
-      "static/chunks/app/admin/portfolio/lessons/page-635d40f63f7fd5c9.js"
-    ],
-    "/admin/yoga/courses/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/724-3a7039202ad449fb.js",
-      "static/chunks/app/admin/yoga/courses/page-ee7b2e83a72fe7c1.js"
-    ],
     "/admin/login/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
@@ -120,89 +57,152 @@
       "static/chunks/14-fa89fc85c2a673bd.js",
       "static/chunks/app/admin/login/page-e7e11865a1c27b85.js"
     ],
-    "/admin/yoga/bookings/page": [
+    "/admin/dashboard/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
       "static/chunks/26-3216c0c9e64d15cb.js",
       "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/yoga/bookings/page-b7417cce64f4acf6.js"
+      "static/chunks/app/admin/dashboard/page-925284a6b4acc98a.js"
+    ],
+    "/admin/portfolio/registrations/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/portfolio/registrations/page-54b20d9255b8c96d.js"
+    ],
+    "/admin/travel/banners/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/724-3a7039202ad449fb.js",
+      "static/chunks/app/admin/travel/banners/page-c0e8356d4d7d04e9.js"
     ],
     "/admin/travel/bookings/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
       "static/chunks/26-3216c0c9e64d15cb.js",
       "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/travel/bookings/page-d0c8c2b947c6486b.js"
+      "static/chunks/app/admin/travel/bookings/page-e888d0ac1d3b2b5a.js"
     ],
-    "/admin/portfolio/lessons/[id]/page": [
+    "/admin/travel/categories/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
       "static/chunks/26-3216c0c9e64d15cb.js",
       "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/portfolio/lessons/[id]/page-420132953bd0c8b5.js"
+      "static/chunks/724-3a7039202ad449fb.js",
+      "static/chunks/app/admin/travel/categories/page-0a71c1d37b6a1c61.js"
     ],
-    "/admin/travel/categories/create/page": [
+    "/admin/travel/items/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
       "static/chunks/26-3216c0c9e64d15cb.js",
       "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/travel/categories/create/page-415599f29a212f80.js"
+      "static/chunks/724-3a7039202ad449fb.js",
+      "static/chunks/app/admin/travel/items/page-d6fdd73b05b0cede.js"
+    ],
+    "/admin/yoga/courses/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/724-3a7039202ad449fb.js",
+      "static/chunks/app/admin/yoga/courses/page-c4aa8dbb320c7ab7.js"
+    ],
+    "/admin/yoga/bookings/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/yoga/bookings/page-9a06d44c3f9b1e26.js"
+    ],
+    "/admin/portfolio/lessons/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/724-3a7039202ad449fb.js",
+      "static/chunks/app/admin/portfolio/lessons/page-03a03cd99eb2eb46.js"
     ],
     "/admin/portfolio/lessons/create/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
       "static/chunks/26-3216c0c9e64d15cb.js",
       "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/portfolio/lessons/create/page-b2575693654d0157.js"
-    ],
-    "/admin/travel/categories/[id]/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/travel/categories/[id]/page-df76d50d5c10e0de.js"
-    ],
-    "/admin/travel/items/create/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/travel/items/create/page-3445d3ffc55d95a2.js"
+      "static/chunks/app/admin/portfolio/lessons/create/page-66e4db33c91fdcfc.js"
     ],
     "/admin/travel/banners/[id]/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
       "static/chunks/26-3216c0c9e64d15cb.js",
       "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/travel/banners/[id]/page-9548ce7ae021e0d7.js"
-    ],
-    "/admin/yoga/courses/create/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/yoga/courses/create/page-ce4b6cb4c4f0a5c0.js"
-    ],
-    "/admin/travel/items/[id]/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/travel/items/[id]/page-e2816fe04936eca7.js"
-    ],
-    "/admin/yoga/courses/[id]/page": [
-      "static/chunks/webpack-499e36b71ec1cc87.js",
-      "static/chunks/bf6a786c-f55401bc9a30e778.js",
-      "static/chunks/26-3216c0c9e64d15cb.js",
-      "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/yoga/courses/[id]/page-0b697868b5138d29.js"
+      "static/chunks/app/admin/travel/banners/[id]/page-188be440283c6c78.js"
     ],
     "/admin/travel/banners/create/page": [
       "static/chunks/webpack-499e36b71ec1cc87.js",
       "static/chunks/bf6a786c-f55401bc9a30e778.js",
       "static/chunks/26-3216c0c9e64d15cb.js",
       "static/chunks/main-app-982565fd3c38674c.js",
-      "static/chunks/app/admin/travel/banners/create/page-549abd4c5c2624ec.js"
+      "static/chunks/app/admin/travel/banners/create/page-f022d45bb3ccf609.js"
+    ],
+    "/admin/travel/categories/[id]/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/travel/categories/[id]/page-c44d80edf47fd352.js"
+    ],
+    "/admin/travel/categories/create/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/travel/categories/create/page-d115fc0be9f205c7.js"
+    ],
+    "/admin/travel/items/[id]/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/travel/items/[id]/page-b0287816ce4c55ef.js"
+    ],
+    "/admin/yoga/courses/[id]/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/yoga/courses/[id]/page-cac013f9ee6ddba3.js"
+    ],
+    "/admin/travel/items/create/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/travel/items/create/page-150b1dc6d8b6536b.js"
+    ],
+    "/admin/yoga/courses/create/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/yoga/courses/create/page-ce69d953706e0cec.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/724-3a7039202ad449fb.js",
+      "static/chunks/14-fa89fc85c2a673bd.js",
+      "static/chunks/app/page-3247599ac865f243.js"
+    ],
+    "/admin/portfolio/lessons/[id]/page": [
+      "static/chunks/webpack-499e36b71ec1cc87.js",
+      "static/chunks/bf6a786c-f55401bc9a30e778.js",
+      "static/chunks/26-3216c0c9e64d15cb.js",
+      "static/chunks/main-app-982565fd3c38674c.js",
+      "static/chunks/app/admin/portfolio/lessons/[id]/page-2b567c29a548fe9b.js"
     ]
   }
 }

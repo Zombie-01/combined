@@ -46,7 +46,7 @@ export default async function Page() {
               ) : (
                 banners.map((b) => (
                   <TableRow key={b.id}>
-                    <TableCell>{b.title}</TableCell>
+                    <TableCell>{b.text}</TableCell>
                     <TableCell>
                       <Link href={`/admin/travel/banners/${b.id}`}>
                         <Button variant="ghost">Edit</Button>

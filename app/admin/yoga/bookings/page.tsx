@@ -38,8 +38,8 @@ export default async function Page() {
               ) : (
                 bookings.map((b) => (
                   <TableRow key={b.id}>
-                    <TableCell>{b.user}</TableCell>
-                    <TableCell>{b.courseTitle}</TableCell>
+                    <TableCell>{b.user_id}</TableCell>
+                    <TableCell>{b.course_id}</TableCell>
                   </TableRow>
                 ))
               )}

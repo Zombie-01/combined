@@ -13,14 +13,14 @@ export default async function Page({ params }: { params: { id: string } }) {
       <h1 className="text-2xl font-semibold mb-4">Edit Banner</h1>
       <Card>
         <CardHeader>
-          <CardTitle>Edit {item.title}</CardTitle>
+          <CardTitle>Edit {item?.text}</CardTitle>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid grid-cols-1 gap-4">
               <div>
                 <label className="block text-sm font-medium">Title</label>
-                <Input name="title" defaultValue={item.title} />
+                <Input name="title" defaultValue={item?.text} />
               </div>
               <div className="flex gap-2">
                 <Button type="button">Update</Button>
