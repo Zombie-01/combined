@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import BannersTable from "./tablE";
+import BannersTable from "./table";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Page() {
