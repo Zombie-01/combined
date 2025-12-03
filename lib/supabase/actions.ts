@@ -90,7 +90,7 @@ export async function deleteLesson(id: string) {
 export async function listPortfolioRegistrations() {
   const { data } = await supabaseAdmin
     .from("portfolio_registrations")
-    .select("id,created_at,user_id,lesson_id,portfolio_lessons(title)")
+    .select("id,created_at,user_id,lesson_id,users(name,email),portfolio_lessons(title)")
     .order("created_at", { ascending: false });
   return data ?? [];
 }
@@ -183,7 +183,7 @@ export async function deleteTravelItem(id: string) {
 export async function listTravelBookings() {
   const { data } = await supabaseAdmin
     .from("travel_bookings")
-    .select("*")
+    .select("id,created_at,date_from,date_to,status,travel_id,user_id,users(name,email),travel_items(title,location,country)")
     .order("created_at", { ascending: false });
   return data ?? [];
 }
@@ -285,7 +285,7 @@ export async function deleteYogaCourse(id: string) {
 export async function listYogaBookings() {
   const { data } = await supabaseAdmin
     .from("yoga_bookings")
-    .select("id,created_at,user_id,course_id,yoga_courses(title)")
+    .select("id,created_at,schedule,user_id,course_id,users(name,email),yoga_courses(title,type)")
     .order("created_at", { ascending: false });
   return data ?? [];
 }

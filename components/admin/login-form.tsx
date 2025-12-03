@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function LoginForm() {
+  const router = useRouter();
   const { login, register } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,11 +24,16 @@ export default function LoginForm() {
     setLoading(true);
     try {
       const ok = await login(email, password);
-      if (!ok) setError("Invalid credentials");
+      if (ok) {
+        setSuccess("Login successful — redirecting...");
+        router.push("/admin/dashboard");
+      } else {
+        setError("Invalid credentials");
+        setLoading(false);
+      }
     } catch (err) {
       console.error(err);
       setError("Unexpected error");
-    } finally {
       setLoading(false);
     }
   };
@@ -40,16 +47,21 @@ export default function LoginForm() {
       const res = await register(name, email, password);
       if (!res.success) {
         setError(res.error ?? (res as any).message ?? "Registration failed");
+        setLoading(false);
       } else {
         setSuccess("Registration successful — signing in...");
         // attempt auto-login
         const ok = await login(email, password);
-        if (!ok) setError("Registration succeeded but auto-login failed");
+        if (ok) {
+          router.push("/admin/dashboard");
+        } else {
+          setError("Registration succeeded but auto-login failed");
+          setLoading(false);
+        }
       }
     } catch (err) {
       console.error(err);
       setError("Unexpected error");
-    } finally {
       setLoading(false);
     }
   };

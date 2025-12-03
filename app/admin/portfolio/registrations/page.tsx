@@ -21,30 +21,44 @@ export default async function Page() {
           <CardTitle>Registrations</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>User</TableHead>
-                <TableHead>Lesson</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {regs.length === 0 ? (
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
                 <TableRow>
-                  <TableCell colSpan={2} className="text-center py-6">
-                    No registrations
-                  </TableCell>
+                  <TableHead>User Name</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>Lesson</TableHead>
+                  <TableHead>Registered Date</TableHead>
                 </TableRow>
-              ) : (
-                regs.map((r) => (
-                  <TableRow key={r.id}>
-                    <TableCell>{r.user_id}</TableCell>
-                    <TableCell>{r.lesson_id}</TableCell>
+              </TableHeader>
+              <TableBody>
+                {regs.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={4} className="text-center py-6">
+                      No registrations
+                    </TableCell>
                   </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+                ) : (
+                  regs.map((r: any) => (
+                    <TableRow key={r.id}>
+                      <TableCell className="font-medium">
+                        {r.users?.name || "N/A"}
+                      </TableCell>
+                      <TableCell>{r.users?.email || "N/A"}</TableCell>
+                      <TableCell>
+                        {r.portfolio_lessons?.title || "N/A"}
+                      </TableCell>
+                      <TableCell>
+                        {r.created_at
+                          ? new Date(r.created_at).toLocaleDateString()
+                          : "N/A"}
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
     </div>

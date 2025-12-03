@@ -38,6 +38,7 @@ export type Database = {
           created_at: string
           description: string
           id: string
+          image_url: string
           title: string
           video_url: string
         }
@@ -45,6 +46,7 @@ export type Database = {
           created_at?: string
           description?: string
           id?: string
+          image_url?: string
           title: string
           video_url?: string
         }
@@ -52,6 +54,7 @@ export type Database = {
           created_at?: string
           description?: string
           id?: string
+          image_url?: string
           title?: string
           video_url?: string
         }
@@ -117,7 +120,9 @@ export type Database = {
       travel_items: {
         Row: {
           category_id: string
+          country: string
           created_at: string
+          description: string
           id: string
           image_url: string
           location: string
@@ -126,7 +131,9 @@ export type Database = {
         }
         Insert: {
           category_id: string
+          country?: string
           created_at?: string
+          description?: string
           id?: string
           image_url?: string
           location?: string
@@ -135,7 +142,9 @@ export type Database = {
         }
         Update: {
           category_id?: string
+          country?: string
           created_at?: string
+          description?: string
           id?: string
           image_url?: string
           location?: string

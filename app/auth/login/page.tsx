@@ -26,7 +26,7 @@ export default function LoginPage() {
       if (signInError) {
         setError(signInError.message);
       } else {
-        router.push("/dashboard");
+        router.push("/admin/dashboard");
       }
     } catch (err) {
       setError("An unexpected error occurred");
@@ -91,7 +91,7 @@ export default function LoginPage() {
       </form>
 
       <p className="text-center text-sm text-gray-600">
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <Link
           href="/auth/register"
           className="font-semibold text-blue-600 transition-colors hover:text-blue-700">
