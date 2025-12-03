@@ -1,17 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import DeleteButton from "@/components/ui/delete-button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { listTravelItems } from "@/lib/supabase/actions";
+import TravelItemsTable from "./table";
 
 export default async function Page() {
   const items = await listTravelItems();
@@ -30,37 +22,7 @@ export default async function Page() {
           <CardTitle>Items</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {items.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={2} className="text-center py-6">
-                    No items
-                  </TableCell>
-                </TableRow>
-              ) : (
-                items.map((it) => (
-                  <TableRow key={it.id}>
-                    <TableCell>{it.title}</TableCell>
-                    <TableCell>
-                      <div className="flex items-center">
-                        <Link href={`/admin/travel/items/${it.id}`}>
-                          <Button variant="ghost">Edit</Button>
-                        </Link>
-                        <DeleteButton id={it.id} apiPath="/api/travel/items" />
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+          <TravelItemsTable items={items} />
         </CardContent>
       </Card>
     </div>

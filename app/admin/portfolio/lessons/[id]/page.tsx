@@ -1,9 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
-import { getLesson, updateLesson, deleteLesson } from "@/lib/supabase/actions";
+import LessonEditForm from "@/components/admin/lesson-edit-form";
+import { getLesson } from "@/lib/supabase/actions";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -17,20 +15,11 @@ export default async function Page({ params }: { params: { id: string } }) {
           <CardTitle>Edit {lesson?.title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <form>
-            <div className="grid grid-cols-1 gap-4">
-              <div>
-                <label className="block text-sm font-medium">Title</label>
-                <Input name="title" defaultValue={lesson?.title} />
-              </div>
-              <div className="flex gap-2">
-                <Button type="button">Update</Button>
-                <Button type="button" variant="destructive">
-                  Delete
-                </Button>
-              </div>
-            </div>
-          </form>
+          {lesson ? (
+            <LessonEditForm lesson={lesson} />
+          ) : (
+            <div>Lesson not found</div>
+          )}
         </CardContent>
       </Card>
     </div>

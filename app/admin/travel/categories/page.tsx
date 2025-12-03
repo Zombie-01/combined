@@ -13,6 +13,44 @@ import DeleteButton from "@/components/ui/delete-button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { listCategories } from "@/lib/supabase/actions";
 
+// Client component for table rendering
+const CategoriesTable = ({ cats }: { cats: any[] }) => {
+  "use client";
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Name</TableHead>
+          <TableHead>Actions</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {cats.length === 0 ? (
+          <TableRow>
+            <TableCell colSpan={2} className="text-center py-6">
+              No categories
+            </TableCell>
+          </TableRow>
+        ) : (
+          cats.map((c) => (
+            <TableRow key={c.id}>
+              <TableCell>{c.name}</TableCell>
+              <TableCell>
+                <div className="flex items-center">
+                  <Link href={`/admin/travel/categories/${c.id}`}>
+                    <Button variant="ghost">Edit</Button>
+                  </Link>
+                  <DeleteButton id={c.id} apiPath="/api/travel/categories" />
+                </div>
+              </TableCell>
+            </TableRow>
+          ))
+        )}
+      </TableBody>
+    </Table>
+  );
+};
+
 export default async function Page() {
   const cats = await listCategories();
 
@@ -30,40 +68,7 @@ export default async function Page() {
           <CardTitle>Categories</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {cats.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={2} className="text-center py-6">
-                    No categories
-                  </TableCell>
-                </TableRow>
-              ) : (
-                cats.map((c) => (
-                  <TableRow key={c.id}>
-                    <TableCell>{c.name}</TableCell>
-                    <TableCell>
-                      <div className="flex items-center">
-                        <Link href={`/admin/travel/categories/${c.id}`}>
-                          <Button variant="ghost">Edit</Button>
-                        </Link>
-                        <DeleteButton
-                          id={c.id}
-                          apiPath="/api/travel/categories"
-                        />
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+          <CategoriesTable cats={cats} />
         </CardContent>
       </Card>
     </div>

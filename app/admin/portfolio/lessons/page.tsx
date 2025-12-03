@@ -33,7 +33,9 @@ export default async function Page() {
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead>Image</TableHead>
                 <TableHead>Title</TableHead>
+                <TableHead>Desc</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -47,7 +49,11 @@ export default async function Page() {
               ) : (
                 lessons.map((l) => (
                   <TableRow key={l.id}>
+                    <TableCell>
+                      <img src={l.image_url} className="w-10 h-10" />
+                    </TableCell>
                     <TableCell>{l.title}</TableCell>
+                    <TableCell>{l.description.split(0, 10)}</TableCell>
                     <TableCell>
                       <div className="flex items-center">
                         <Link href={`/admin/portfolio/lessons/${l.id}`}>
