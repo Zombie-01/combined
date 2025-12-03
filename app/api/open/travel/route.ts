@@ -17,7 +17,6 @@ export async function GET() {
         categories: categories.map((c: any) => ({
           id: c.id,
           name: c.name,
-          icon: c.icon,
         })),
         items: items.map((i: any) => ({
           id: i.id,
