@@ -14,22 +14,14 @@ export default async function Page({ params }: { params: { id: string } }) {
       <h1 className="text-2xl font-semibold mb-4">Edit Lesson</h1>
       <Card>
         <CardHeader>
-          <CardTitle>Edit {lesson.title}</CardTitle>
+          <CardTitle>Edit {lesson?.title}</CardTitle>
         </CardHeader>
         <CardContent>
           <form>
             <div className="grid grid-cols-1 gap-4">
               <div>
                 <label className="block text-sm font-medium">Title</label>
-                <Input name="title" defaultValue={lesson.title} />
-              </div>
-              <div>
-                <label className="block text-sm font-medium">Date</label>
-                <Input
-                  name="date"
-                  type="date"
-                  defaultValue={lesson.date ?? undefined}
-                />
+                <Input name="title" defaultValue={lesson?.title} />
               </div>
               <div className="flex gap-2">
                 <Button type="button">Update</Button>

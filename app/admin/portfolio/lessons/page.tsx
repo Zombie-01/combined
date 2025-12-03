@@ -33,7 +33,6 @@ export default async function Page() {
             <TableHeader>
               <TableRow>
                 <TableHead>Title</TableHead>
-                <TableHead>Date</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -48,7 +47,6 @@ export default async function Page() {
                 lessons.map((l) => (
                   <TableRow key={l.id}>
                     <TableCell>{l.title}</TableCell>
-                    <TableCell>{l.date ?? "-"}</TableCell>
                     <TableCell>
                       <Link href={`/admin/portfolio/lessons/${l.id}`}>
                         <Button variant="ghost">Edit</Button>
