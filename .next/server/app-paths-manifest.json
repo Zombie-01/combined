@@ -1,11 +1,1 @@
-{
-  "/not-found": "app/not-found.js",
-  "/api/admin/upload/route": "app/api/admin/upload/route.js",
-  "/api/yoga/courses/route": "app/api/yoga/courses/route.js",
-  "/api/auth/session/route": "app/api/auth/session/route.js",
-  "/admin/travel/banners/page": "app/admin/travel/banners/page.js",
-  "/admin/yoga/courses/page": "app/admin/yoga/courses/page.js",
-  "/admin/travel/items/create/page": "app/admin/travel/items/create/page.js",
-  "/admin/travel/banners/create/page": "app/admin/travel/banners/create/page.js",
-  "/admin/yoga/courses/create/page": "app/admin/yoga/courses/create/page.js"
-}
+{}

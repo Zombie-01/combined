@@ -6,12 +6,11 @@ import YogaCoursesTable from "./table";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default async function Page() {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
   let courses = [];
   let loading = true;
 
   try {
-    const res = await fetch(`${baseUrl}/api/yoga/courses`, {
+    const res = await fetch(`/api/yoga/courses`, {
       cache: "no-store",
     });
     if (res.ok) {
