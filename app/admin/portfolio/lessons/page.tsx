@@ -53,7 +53,7 @@ export default async function Page() {
                       <img src={l.image_url} className="w-10 h-10" />
                     </TableCell>
                     <TableCell>{l.title}</TableCell>
-                    <TableCell>{l.description.split(0, 10)}</TableCell>
+                    <TableCell>{l.description}</TableCell>
                     <TableCell>
                       <div className="flex items-center">
                         <Link href={`/admin/portfolio/lessons/${l.id}`}>
